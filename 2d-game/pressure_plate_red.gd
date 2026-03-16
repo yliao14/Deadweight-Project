@@ -8,6 +8,7 @@ func _ready():
 	body_exited.connect(_on_body_exited)
 
 func _on_body_entered(body):
+	print(body)
 	if body.is_in_group("players"):
 		if not players_on_plate.has(body):
 			players_on_plate.append(body)
@@ -23,7 +24,9 @@ func update_platform():
 	if platform == null:
 		print("platform not found")
 		return
-
+	print('player_on_plate')
+	print(players_on_plate)
+	
 	if players_on_plate.size() > 0:
 		platform.request_up()
 	else:
