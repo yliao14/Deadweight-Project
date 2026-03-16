@@ -1,9 +1,86 @@
 [gd_scene format=3 uid="uid://bsv2oq63an3s"]
 
-[ext_resource type="Texture2D" uid="uid://bpvi3lfu530w" path="res://icon.svg" id="1_glv2v"]
+[ext_resource type="Texture2D" uid="uid://dhn11mveocnst" path="res://background 1.png" id="1_cm0pq"]
+[ext_resource type="Script" uid="uid://c6krfcbi3dr1w" path="res://main.gd" id="1_lgr22"]
+[ext_resource type="PackedScene" uid="uid://cft46knuog545" path="res://level 1.tscn" id="1_r0du0"]
+[ext_resource type="Texture2D" uid="uid://dl8sjhdeimv56" path="res://p1sprite.png" id="2_3dxm6"]
+[ext_resource type="PackedScene" uid="uid://du6kfobl13u4u" path="res://level 2.tscn" id="2_cm0pq"]
+[ext_resource type="PackedScene" uid="uid://de3r4h3gdqai4" path="res://level 3.tscn" id="3_fos0i"]
+[ext_resource type="Texture2D" uid="uid://cqqnnqqawb5mt" path="res://p2sprite.png" id="3_lgr22"]
+[ext_resource type="Script" uid="uid://cnd5n3vwexamy" path="res://player.gd" id="3_trn2v"]
 
-[node name="Node2D" type="Node2D" unique_id=971100031]
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_trn2v"]
+radius = 19.0
+height = 84.0
 
-[node name="Icon" type="Sprite2D" parent="." unique_id=967180776]
-position = Vector2(84, 90)
-texture = ExtResource("1_glv2v")
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_03owx"]
+radius = 21.0
+height = 88.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_trn2v"]
+size = Vector2(174.5, 261)
+
+[node name="Main" type="Node2D" unique_id=971100031]
+script = ExtResource("1_lgr22")
+
+[node name="Background1" type="Sprite2D" parent="." unique_id=659263032]
+position = Vector2(2.000122, 3)
+scale = Vector2(0.23252895, 0.23000637)
+texture = ExtResource("1_cm0pq")
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1249464854]
+position_smoothing_enabled = true
+
+[node name="Level1" parent="." unique_id=2010441964 instance=ExtResource("1_r0du0")]
+position = Vector2(-572, -322)
+
+[node name="Level2" parent="." unique_id=1384185308 instance=ExtResource("2_cm0pq")]
+position = Vector2(-576, -974)
+
+[node name="Level3" parent="." unique_id=1008215105 instance=ExtResource("3_fos0i")]
+position = Vector2(-578, -1620)
+
+[node name="Player1" type="CharacterBody2D" parent="." unique_id=217989545]
+script = ExtResource("3_trn2v")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player1" unique_id=1283426026]
+position = Vector2(-295, 227)
+shape = SubResource("CapsuleShape2D_trn2v")
+
+[node name="P1Sprite" type="Sprite2D" parent="Player1" unique_id=779974400]
+position = Vector2(-292, 227.5)
+scale = Vector2(2.3124998, 2.7187502)
+texture = ExtResource("2_3dxm6")
+
+[node name="Player2" type="CharacterBody2D" parent="." unique_id=2056167385]
+script = ExtResource("3_trn2v")
+player_id = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player2" unique_id=1920400785]
+position = Vector2(56, 225)
+shape = SubResource("CapsuleShape2D_03owx")
+
+[node name="P2Sprite" type="Sprite2D" parent="Player2" unique_id=1824931659]
+position = Vector2(58.5, 227)
+scale = Vector2(2.46875, 2.6875)
+texture = ExtResource("3_lgr22")
+
+[node name="CameraTarget_L1" type="Marker2D" parent="." unique_id=912627602]
+
+[node name="CameraTarget_L2" type="Marker2D" parent="." unique_id=113533157]
+position = Vector2(5, -646)
+
+[node name="CameraTarget_L3" type="Marker2D" parent="." unique_id=481335876]
+position = Vector2(1, -1286)
+
+[node name="Level2Zone" type="Area2D" parent="." unique_id=1030150594]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Level2Zone" unique_id=366672370]
+position = Vector2(392.25, -252.5)
+shape = SubResource("RectangleShape2D_trn2v")
+
+[node name="Level2SpawnP1" type="Marker2D" parent="." unique_id=707923583]
+position = Vector2(222, -397)
+
+[node name="Level2SpawnP2" type="Marker2D" parent="." unique_id=1803421717]
+position = Vector2(267, -396)
