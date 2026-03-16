@@ -11,8 +11,14 @@
 [ext_resource type="Script" uid="uid://cje01o2n0d8x5" path="res://mid_platform.gd" id="9_xgxgo"]
 [ext_resource type="Texture2D" uid="uid://q5kxcd5w6wu1" path="res://assets-08.png" id="10_r5ei4"]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_r5ei4"]
+size = Vector2(45, 649)
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_d05ww"]
 size = Vector2(1150, 53)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kvadl"]
+size = Vector2(64, 652)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rtx8d"]
 size = Vector2(735.75, 38.4375)
@@ -45,6 +51,10 @@ size = Vector2(208.75, 27)
 
 [node name="Floor 1" type="StaticBody2D" parent="." unique_id=1406568887]
 
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Floor 1" unique_id=367306771]
+position = Vector2(-18.5, 326.5)
+shape = SubResource("RectangleShape2D_r5ei4")
+
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Floor 1" unique_id=1492954093]
 position = Vector2(576, 619.5)
 shape = SubResource("RectangleShape2D_d05ww")
@@ -53,6 +63,10 @@ shape = SubResource("RectangleShape2D_d05ww")
 position = Vector2(576.50006, 620)
 scale = Vector2(1.7127979, 0.18561873)
 texture = ExtResource("6_d05ww")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="Floor 1" unique_id=1405114890]
+position = Vector2(1177, 322)
+shape = SubResource("RectangleShape2D_kvadl")
 
 [node name="Floor 2" type="StaticBody2D" parent="." unique_id=1219818652]
 
