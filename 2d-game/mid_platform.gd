@@ -9,7 +9,6 @@ func show_platform():
 	visible = true
 	if collision:
 		collision.set_deferred("disabled", false)
-	print("MidPlatform shown")
 
 func hide_platform():
 	visible = false

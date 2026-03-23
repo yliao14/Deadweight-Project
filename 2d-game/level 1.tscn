@@ -7,18 +7,19 @@
 [ext_resource type="Texture2D" uid="uid://csckb00uts1us" path="res://assets-06.png" id="6_d05ww"]
 [ext_resource type="Script" uid="uid://bwobd2hfmd7dh" path="res://lift_platform_blue.gd" id="6_rtx8d"]
 [ext_resource type="Script" uid="uid://x4x3givgcnrm" path="res://yellow_rod.gd" id="8_xc3ba"]
+[ext_resource type="Script" uid="uid://han4aiahefg4" path="res://floor_1_zone.gd" id="9_mwq2y"]
 [ext_resource type="Script" uid="uid://b2whq7j55ffcf" path="res://floor_2_zone.gd" id="9_r5ei4"]
 [ext_resource type="Script" uid="uid://cje01o2n0d8x5" path="res://mid_platform.gd" id="9_xgxgo"]
 [ext_resource type="Texture2D" uid="uid://q5kxcd5w6wu1" path="res://assets-08.png" id="10_r5ei4"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kvadl"]
+size = Vector2(64, 652)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_r5ei4"]
 size = Vector2(45, 649)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_d05ww"]
 size = Vector2(1150, 53)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_kvadl"]
-size = Vector2(64, 652)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rtx8d"]
 size = Vector2(735.75, 38.4375)
@@ -27,10 +28,10 @@ size = Vector2(735.75, 38.4375)
 size = Vector2(429, 31.5)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_u82o0"]
-size = Vector2(176.75, 238.375)
+size = Vector2(63, 256.375)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_pe8na"]
-size = Vector2(119, 7)
+size = Vector2(119, 8.5)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_mwq2y"]
 size = Vector2(33.45455, 2.4193554)
@@ -42,14 +43,21 @@ size = Vector2(199, 22.499939)
 size = Vector2(203.5, 31)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_l5f7q"]
-size = Vector2(397, 40)
+size = Vector2(477, 40)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_t4ald"]
+size = Vector2(1157.5, 21)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rrd6l"]
-size = Vector2(208.75, 27)
+size = Vector2(157, 23)
 
 [node name="Level 1" type="Node2D" unique_id=2010441964]
 
 [node name="Floor 1" type="StaticBody2D" parent="." unique_id=1406568887]
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="Floor 1" unique_id=1405114890]
+position = Vector2(1177, 322)
+shape = SubResource("RectangleShape2D_kvadl")
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="Floor 1" unique_id=367306771]
 position = Vector2(-18.5, 326.5)
@@ -60,13 +68,10 @@ position = Vector2(576, 619.5)
 shape = SubResource("RectangleShape2D_d05ww")
 
 [node name="Assets06" type="Sprite2D" parent="Floor 1" unique_id=553452533]
-position = Vector2(576.50006, 620)
-scale = Vector2(1.7127979, 0.18561873)
+modulate = Color(0.7490196, 0.6509804, 0.54901963, 1)
+position = Vector2(576.0001, 620)
+scale = Vector2(1.714286, 0.18561873)
 texture = ExtResource("6_d05ww")
-
-[node name="CollisionShape2D3" type="CollisionShape2D" parent="Floor 1" unique_id=1405114890]
-position = Vector2(1177, 322)
-shape = SubResource("RectangleShape2D_kvadl")
 
 [node name="Floor 2" type="StaticBody2D" parent="." unique_id=1219818652]
 
@@ -75,8 +80,9 @@ position = Vector2(372.125, 400.78125)
 shape = SubResource("RectangleShape2D_rtx8d")
 
 [node name="Assets06" type="Sprite2D" parent="Floor 2" unique_id=1026971211]
-position = Vector2(370.06247, 400.3125)
-scale = Vector2(1.1010044, 0.13168907)
+modulate = Color(0.7490196, 0.6509804, 0.54901963, 1)
+position = Vector2(369.99994, 400.3125)
+scale = Vector2(1.1011903, 0.13168907)
 texture = ExtResource("6_d05ww")
 
 [node name="Floor 3" type="StaticBody2D" parent="." unique_id=1393666812]
@@ -86,6 +92,7 @@ position = Vector2(937.5, 254)
 shape = SubResource("RectangleShape2D_xc3ba")
 
 [node name="Assets06" type="Sprite2D" parent="Floor 3" unique_id=1670832320]
+modulate = Color(0.7490196, 0.6509804, 0.54901963, 1)
 position = Vector2(937.99994, 254.99997)
 scale = Vector2(0.6384859, 0.109531894)
 texture = ExtResource("6_d05ww")
@@ -94,12 +101,12 @@ texture = ExtResource("6_d05ww")
 script = ExtResource("8_xc3ba")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="YellowRod" unique_id=2023373475]
-position = Vector2(963, 119.1875)
+position = Vector2(1005.5, 110)
 shape = SubResource("RectangleShape2D_u82o0")
 
 [node name="Assets03" type="Sprite2D" parent="YellowRod" unique_id=1531309900]
-position = Vector2(964.00006, 122.20142)
-scale = Vector2(0.09383184, 0.12456468)
+position = Vector2(964.00006, 110.20143)
+scale = Vector2(0.09383184, 0.13689767)
 texture = ExtResource("5_tbpbd")
 
 [node name="PressurePlateRed" type="Area2D" parent="." unique_id=1114976924]
@@ -107,7 +114,7 @@ script = ExtResource("4_u82o0")
 linked_platform = NodePath("../LiftPlatformBlue")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PressurePlateRed" unique_id=1774300707]
-position = Vector2(415, 589)
+position = Vector2(415, 588.25)
 shape = SubResource("RectangleShape2D_pe8na")
 
 [node name="Presplateon" type="Sprite2D" parent="PressurePlateRed" unique_id=1061044856]
@@ -120,6 +127,7 @@ position = Vector2(351, 336)
 scale = Vector2(4.1249995, 2.9062498)
 script = ExtResource("4_u82o0")
 linked_platform = NodePath("../LiftPlatformBlue")
+is_upper_plate = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PressurePlateRed2" unique_id=1632494871]
 position = Vector2(-40.00001, 13.892471)
@@ -138,6 +146,7 @@ position = Vector2(857.5, 577.25)
 shape = SubResource("RectangleShape2D_2ow8g")
 
 [node name="Assets05" type="Sprite2D" parent="LiftPlatformBlue" unique_id=1743468921]
+modulate = Color(0.7490196, 0.6509804, 0.54901963, 1)
 position = Vector2(858.50006, 578)
 scale = Vector2(0.31653538, 0.06417121)
 texture = ExtResource("4_pe8na")
@@ -153,17 +162,27 @@ script = ExtResource("9_r5ei4")
 mid_platform_path = NodePath("../MidPlatform")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Floor2Zone" unique_id=766337119]
-position = Vector2(197.5, 394)
+position = Vector2(237.5, 394)
 shape = SubResource("RectangleShape2D_l5f7q")
+
+[node name="Floor1Zone" type="Area2D" parent="." unique_id=132617825]
+script = ExtResource("9_mwq2y")
+mid_platform_path = NodePath("../MidPlatform")
+floor2_zone_path = NodePath("../Floor2Zone")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Floor1Zone" unique_id=739825807]
+position = Vector2(577.25, 596.5)
+shape = SubResource("RectangleShape2D_t4ald")
 
 [node name="MidPlatform" type="StaticBody2D" parent="." unique_id=1202589191]
 script = ExtResource("9_xgxgo")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="MidPlatform" unique_id=451466033]
-position = Vector2(593, 299)
+position = Vector2(594, 305)
 shape = SubResource("RectangleShape2D_rrd6l")
 
 [node name="midplatform" type="Sprite2D" parent="MidPlatform" unique_id=1902632729]
-position = Vector2(593, 300)
-scale = Vector2(0.30952376, 0.0753349)
+modulate = Color(0.7490196, 0.6509804, 0.54901963, 1)
+position = Vector2(593, 304.99997)
+scale = Vector2(0.23363094, 0.0753349)
 texture = ExtResource("10_r5ei4")

@@ -1,35 +1,249 @@
 [gd_scene format=3 uid="uid://bsv2oq63an3s"]
 
-[ext_resource type="Texture2D" uid="uid://dhn11mveocnst" path="res://background 1.png" id="1_cm0pq"]
 [ext_resource type="Script" uid="uid://c6krfcbi3dr1w" path="res://main.gd" id="1_lgr22"]
 [ext_resource type="PackedScene" uid="uid://cft46knuog545" path="res://level 1.tscn" id="1_r0du0"]
-[ext_resource type="Texture2D" uid="uid://dl8sjhdeimv56" path="res://p1sprite.png" id="2_3dxm6"]
 [ext_resource type="PackedScene" uid="uid://du6kfobl13u4u" path="res://level 2.tscn" id="2_cm0pq"]
+[ext_resource type="Texture2D" uid="uid://cujg0s1nph1em" path="res://3 stories background.png" id="2_trn2v"]
 [ext_resource type="PackedScene" uid="uid://de3r4h3gdqai4" path="res://level 3.tscn" id="3_fos0i"]
-[ext_resource type="Texture2D" uid="uid://cqqnnqqawb5mt" path="res://p2sprite.png" id="3_lgr22"]
 [ext_resource type="Script" uid="uid://cnd5n3vwexamy" path="res://player.gd" id="3_trn2v"]
+[ext_resource type="Texture2D" uid="uid://dboeqwlqb1q40" path="res://player 1-1.png" id="4_3b0ty"]
+[ext_resource type="Texture2D" uid="uid://h4yytqpuybcn" path="res://player 2-1.png" id="4_5tuhn"]
+[ext_resource type="Texture2D" uid="uid://dgtlv4h3yyjtb" path="res://player 2-2.png" id="5_2gh4u"]
+[ext_resource type="Texture2D" uid="uid://cgxwkgie15en8" path="res://player 1-2.png" id="5_bg4s2"]
+[ext_resource type="Texture2D" uid="uid://cpb1an4qgx4ck" path="res://player 2-3.png" id="6_devvj"]
+[ext_resource type="Script" uid="uid://booha2lh6huwk" path="res://zombie.gd" id="6_fpfj3"]
+[ext_resource type="Texture2D" uid="uid://camnbd7wvjdgv" path="res://player 1-3.png" id="6_hhcpw"]
+[ext_resource type="Texture2D" uid="uid://w4mynx3vg4js" path="res://player 2-4.png" id="7_3b0ty"]
+[ext_resource type="Texture2D" uid="uid://cg5x0ah301hfx" path="res://player 1-4.png" id="7_mxvw5"]
+[ext_resource type="Script" uid="uid://n22jfmgp1h7q" path="res://congratulation_screen.gd" id="9_03owx"]
+[ext_resource type="Script" uid="uid://dq418y4g3b77a" path="res://level_3_zone.gd" id="9_wkp8b"]
+[ext_resource type="Script" uid="uid://b4ywjnpqfi5mt" path="res://game_over_screen.gd" id="11_20pc6"]
+[ext_resource type="Texture2D" uid="uid://4g81urf17uvr" path="res://zombie_1.png" id="12_c6i3y"]
+[ext_resource type="Texture2D" uid="uid://bq2ff5hccox61" path="res://zombie_2.png" id="13_c2ibq"]
+[ext_resource type="Texture2D" uid="uid://c5llhy3bu2k2" path="res://zombie_3.png" id="14_j4qnp"]
+[ext_resource type="Texture2D" uid="uid://cpljd6mcxt5k3" path="res://zombie_4.png" id="15_fpfj3"]
+[ext_resource type="Script" uid="uid://tv37546pg88e" path="res://start_screen.gd" id="21_bg4s2"]
+[ext_resource type="Texture2D" uid="uid://c7mksic5v4sqi" path="res://warning sign.png" id="22_hhcpw"]
+[ext_resource type="FontFile" uid="uid://ec4adcaxv17o" path="res://pixelated.ttf" id="22_xrxkg"]
+[ext_resource type="FontFile" uid="uid://gxe216h7kstd" path="res://' Mono Regular.ttf" id="23_sqvbp"]
+[ext_resource type="FontFile" uid="uid://bsg0rcw35lc34" path="res://' Mono Bold.ttf" id="27_sqvbp"]
+[ext_resource type="AudioStream" uid="uid://csl3rwpgeltkr" path="res://BG music.mp3" id="28_hri7i"]
+[ext_resource type="Script" uid="uid://3oael71xn115" path="res://audio.gd" id="29_5mvff"]
+[ext_resource type="AudioStream" uid="uid://mvkikd0rebt7" path="res://zombie sound.mp3" id="29_w3rk5"]
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_trn2v"]
-radius = 19.0
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_3b0ty"]
+radius = 18.0
 height = 84.0
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_03owx"]
-radius = 21.0
-height = 88.0
+[sub_resource type="SpriteFrames" id="SpriteFrames_xrxkg"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_3b0ty")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_3b0ty")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_bg4s2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_hhcpw")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_mxvw5")
+}],
+"loop": true,
+"name": &"walk",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_bg4s2"]
+radius = 18.0
+height = 82.0
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_bg4s2"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_5tuhn")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_5tuhn")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_2gh4u")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_devvj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_3b0ty")
+}],
+"loop": true,
+"name": &"walk",
+"speed": 5.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_j4qnp"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("12_c6i3y")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_c2ibq")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("14_j4qnp")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_fpfj3")
+}],
+"loop": true,
+"name": &"run",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_hhcpw"]
+radius = 23.0
+height = 84.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_mxvw5"]
+radius = 23.0
+height = 84.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_xrxkg"]
+radius = 24.0
+height = 82.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_trn2v"]
 size = Vector2(174.5, 261)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_03owx"]
+size = Vector2(1157, 520)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hhcpw"]
+bg_color = Color(1, 0.8333334, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_sqvbp"]
+bg_color = Color(0, 0.8691702, 0.92197233, 1)
+
 [node name="Main" type="Node2D" unique_id=971100031]
 script = ExtResource("1_lgr22")
 
-[node name="Background1" type="Sprite2D" parent="." unique_id=659263032]
-position = Vector2(2.000122, 3)
-scale = Vector2(0.23252895, 0.23000637)
-texture = ExtResource("1_cm0pq")
+[node name="3StoriesBackground" type="Sprite2D" parent="." unique_id=1427679449]
+modulate = Color(1.0731114, 1.0731114, 0.67474484, 1)
+position = Vector2(12.000082, -799.00006)
+scale = Vector2(0.237055, 0.26540956)
+texture = ExtResource("2_trn2v")
+
+[node name="Player1" type="CharacterBody2D" parent="." unique_id=217989545]
+script = ExtResource("3_trn2v")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player1" unique_id=50751388]
+position = Vector2(58, 228)
+shape = SubResource("CapsuleShape2D_3b0ty")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Player1" unique_id=1846329304]
+position = Vector2(59, 227)
+scale = Vector2(0.34599996, 0.34599996)
+sprite_frames = SubResource("SpriteFrames_xrxkg")
+animation = &"idle"
+
+[node name="Player2" type="CharacterBody2D" parent="." unique_id=2056167385]
+script = ExtResource("3_trn2v")
+player_id = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player2" unique_id=1590612508]
+position = Vector2(-30, 229)
+shape = SubResource("CapsuleShape2D_bg4s2")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Player2" unique_id=2080991000]
+position = Vector2(-29, 229.00002)
+scale = Vector2(0.3325001, 0.3325001)
+sprite_frames = SubResource("SpriteFrames_bg4s2")
+animation = &"walk"
+
+[node name="Zombie1" type="Area2D" parent="." unique_id=1500639654]
+script = ExtResource("6_fpfj3")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Zombie1" unique_id=1229660328]
+position = Vector2(-426.00003, 228)
+scale = Vector2(0.105602436, 0.11005626)
+sprite_frames = SubResource("SpriteFrames_j4qnp")
+animation = &"idle"
+speed_scale = 1.2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Zombie1" unique_id=1123974010]
+position = Vector2(-423, 229)
+shape = SubResource("CapsuleShape2D_hhcpw")
+
+[node name="Zombie2" type="Area2D" parent="." unique_id=408154805]
+script = ExtResource("6_fpfj3")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Zombie2" unique_id=779394747]
+position = Vector2(-481, 228)
+scale = Vector2(0.105602436, 0.11005626)
+sprite_frames = SubResource("SpriteFrames_j4qnp")
+animation = &"idle"
+speed_scale = 1.2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Zombie2" unique_id=589950281]
+position = Vector2(-478, 228)
+shape = SubResource("CapsuleShape2D_mxvw5")
+
+[node name="Zombie3" type="Area2D" parent="." unique_id=422042523]
+script = ExtResource("6_fpfj3")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Zombie3" unique_id=1151850439]
+position = Vector2(-539, 228)
+scale = Vector2(0.105602436, 0.11005626)
+sprite_frames = SubResource("SpriteFrames_j4qnp")
+animation = &"idle"
+speed_scale = 1.2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Zombie3" unique_id=1924695563]
+position = Vector2(-539, 230)
+shape = SubResource("CapsuleShape2D_xrxkg")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1249464854]
 position_smoothing_enabled = true
+
+[node name="CameraTarget_L1" type="Marker2D" parent="." unique_id=912627602]
+
+[node name="CameraTarget_L2" type="Marker2D" parent="." unique_id=113533157]
+position = Vector2(5, -646)
+
+[node name="CameraTarget_L3" type="Marker2D" parent="." unique_id=481335876]
+position = Vector2(1, -1279)
+
+[node name="Level2SpawnP1" type="Marker2D" parent="." unique_id=707923583]
+position = Vector2(180, -600)
+
+[node name="Level2SpawnP2" type="Marker2D" parent="." unique_id=1803421717]
+position = Vector2(225, -600)
+
+[node name="Level3SpawnP1" type="Marker2D" parent="." unique_id=1314479897]
+position = Vector2(-300, -1310)
+
+[node name="Level3SpawnP2" type="Marker2D" parent="." unique_id=1700847416]
+position = Vector2(-355, -1311)
 
 [node name="Level1" parent="." unique_id=2010441964 instance=ExtResource("1_r0du0")]
 position = Vector2(-572, -322)
@@ -40,47 +254,310 @@ position = Vector2(-576, -974)
 [node name="Level3" parent="." unique_id=1008215105 instance=ExtResource("3_fos0i")]
 position = Vector2(-578, -1620)
 
-[node name="Player1" type="CharacterBody2D" parent="." unique_id=217989545]
-script = ExtResource("3_trn2v")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Player1" unique_id=1283426026]
-position = Vector2(-295, 227)
-shape = SubResource("CapsuleShape2D_trn2v")
-
-[node name="P1Sprite" type="Sprite2D" parent="Player1" unique_id=779974400]
-position = Vector2(-292, 227.5)
-scale = Vector2(2.3124998, 2.7187502)
-texture = ExtResource("2_3dxm6")
-
-[node name="Player2" type="CharacterBody2D" parent="." unique_id=2056167385]
-script = ExtResource("3_trn2v")
-player_id = 2
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Player2" unique_id=1920400785]
-position = Vector2(56, 225)
-shape = SubResource("CapsuleShape2D_03owx")
-
-[node name="P2Sprite" type="Sprite2D" parent="Player2" unique_id=1824931659]
-position = Vector2(58.5, 227)
-scale = Vector2(2.46875, 2.6875)
-texture = ExtResource("3_lgr22")
-
-[node name="CameraTarget_L1" type="Marker2D" parent="." unique_id=912627602]
-
-[node name="CameraTarget_L2" type="Marker2D" parent="." unique_id=113533157]
-position = Vector2(5, -646)
-
-[node name="CameraTarget_L3" type="Marker2D" parent="." unique_id=481335876]
-position = Vector2(1, -1286)
-
 [node name="Level2Zone" type="Area2D" parent="." unique_id=1030150594]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Level2Zone" unique_id=366672370]
 position = Vector2(392.25, -252.5)
 shape = SubResource("RectangleShape2D_trn2v")
 
-[node name="Level2SpawnP1" type="Marker2D" parent="." unique_id=707923583]
-position = Vector2(222, -397)
+[node name="Level3Zone" type="Area2D" parent="." unique_id=596278025]
+position = Vector2(7, 2)
+script = ExtResource("9_wkp8b")
 
-[node name="Level2SpawnP2" type="Marker2D" parent="." unique_id=1803421717]
-position = Vector2(267, -396)
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Level3Zone" unique_id=314210279]
+position = Vector2(-6.5, -1231)
+shape = SubResource("RectangleShape2D_03owx")
+
+[node name="UI" type="CanvasLayer" parent="." unique_id=60691073]
+layer = 10
+
+[node name="StartScreen" type="Control" parent="UI" unique_id=507062620]
+process_mode = 3
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("21_bg4s2")
+
+[node name="ColorRect" type="ColorRect" parent="UI/StartScreen" unique_id=586978963]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.0026404613, 0.006983456, 0.16159569, 1)
+
+[node name="Title" type="Label" parent="UI/StartScreen" unique_id=1274999271]
+layout_mode = 0
+offset_left = 200.0
+offset_top = 51.0
+offset_right = 950.0
+offset_bottom = 221.0
+theme_override_colors/font_color = Color(0.96346647, 0.8009916, 0.18066826, 1)
+theme_override_fonts/font = ExtResource("22_xrxkg")
+theme_override_font_sizes/font_size = 150
+text = "Deadweight"
+horizontal_alignment = 1
+
+[node name="Description" type="Label" parent="UI/StartScreen" unique_id=1335958946]
+layout_mode = 0
+offset_left = 123.0
+offset_top = 311.0
+offset_right = 1015.0
+offset_bottom = 452.0
+theme_override_fonts/font = ExtResource("23_sqvbp")
+theme_override_font_sizes/font_size = 32
+text = "Zombies are surrounding the building.
+Two survivors must cooperate to escape by helicopter
+from the rooftop before time runs out..."
+horizontal_alignment = 1
+
+[node name="Instruction" type="Label" parent="UI/StartScreen" unique_id=1768565575]
+layout_mode = 0
+offset_left = 232.0
+offset_top = 340.0
+offset_right = 912.0
+offset_bottom = 420.0
+theme_override_fonts/font = ExtResource("23_sqvbp")
+theme_override_font_sizes/font_size = 32
+text = "Player 1: A / D to move  |  W to jump
+Player 2: ← / → to move  |  ↑ to jump"
+horizontal_alignment = 1
+
+[node name="WarningSign" type="TextureRect" parent="UI/StartScreen" unique_id=357004689]
+layout_mode = 0
+offset_left = 522.0
+offset_top = 250.0
+offset_right = 2075.1235
+offset_bottom = 1801.5405
+scale = Vector2(0.06123799, 0.06123799)
+texture = ExtResource("22_hhcpw")
+
+[node name="Warning" type="Label" parent="UI/StartScreen" unique_id=564369957]
+layout_mode = 0
+offset_left = 150.0
+offset_top = 362.0
+offset_right = 988.0
+offset_bottom = 455.0
+theme_override_colors/font_color = Color(1.0518116, 0.22897981, 0.28657806, 1)
+theme_override_fonts/font = ExtResource("23_sqvbp")
+theme_override_font_sizes/font_size = 32
+text = "You have 120 seconds before the zombies break in!
+Cooperate or die together."
+horizontal_alignment = 1
+
+[node name="StartButton" type="Button" parent="UI/StartScreen" unique_id=2123176075]
+layout_mode = 0
+offset_left = 422.0
+offset_top = 507.0
+offset_right = 725.0
+offset_bottom = 583.0
+theme_override_colors/font_color = Color(0.008845934, 0.009500013, 0.0093103545, 1)
+theme_override_fonts/font = ExtResource("27_sqvbp")
+theme_override_font_sizes/font_size = 32
+theme_override_styles/normal = SubResource("StyleBoxFlat_hhcpw")
+text = "Start"
+
+[node name="CongratulationsScreen" type="Control" parent="UI" unique_id=1559025314]
+visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("9_03owx")
+
+[node name="ColorRect" type="ColorRect" parent="UI/CongratulationsScreen" unique_id=1093238987]
+clip_contents = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -3.0
+offset_right = 3.0
+offset_bottom = 3.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.008830048, 0.059319366, 0.1923251, 1)
+
+[node name="Title" type="Label" parent="UI/CongratulationsScreen" unique_id=502486283]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 146.0
+offset_top = 133.0
+offset_right = -162.5597
+offset_bottom = -400.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1.0383012, 1.0346792)
+theme_override_colors/font_color = Color(0.0627451, 0.8980392, 0.8235294, 1)
+theme_override_fonts/font = ExtResource("27_sqvbp")
+theme_override_font_sizes/font_size = 84
+text = "Congratulations!"
+horizontal_alignment = 1
+uppercase = true
+
+[node name="Subtitle" type="Label" parent="UI/CongratulationsScreen" unique_id=2005243142]
+layout_mode = 0
+offset_left = 168.0
+offset_top = 256.0
+offset_right = 935.0
+offset_bottom = 323.0
+scale = Vector2(1.0626101, 1.0626101)
+theme_override_fonts/font = ExtResource("23_sqvbp")
+theme_override_font_sizes/font_size = 42
+text = "You escaped together successfully!"
+horizontal_alignment = 1
+
+[node name="RestartButton" type="Button" parent="UI/CongratulationsScreen" unique_id=462792361]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.531
+anchor_top = 0.725
+anchor_right = 0.87000006
+anchor_bottom = 0.85200006
+offset_left = 0.28796387
+offset_top = 0.19998169
+offset_right = -0.13647461
+offset_bottom = 0.016967773
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0.18039216, 1)
+theme_override_fonts/font = ExtResource("27_sqvbp")
+theme_override_font_sizes/font_size = 32
+theme_override_styles/normal = SubResource("StyleBoxFlat_sqvbp")
+text = "Play Again"
+
+[node name="QuitButton" type="Button" parent="UI/CongratulationsScreen" unique_id=57541858]
+modulate = Color(2.205955, 2.53357, 4.3518353, 1)
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.125
+anchor_top = 0.721
+anchor_right = 0.46100003
+anchor_bottom = 0.845
+offset_top = -0.20800781
+offset_right = -0.55200195
+offset_bottom = 0.31500244
+theme_override_fonts/font = ExtResource("27_sqvbp")
+theme_override_font_sizes/font_size = 32
+text = "Quit
+"
+
+[node name="GameOverScreen" type="Control" parent="UI" unique_id=1738809218]
+visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("11_20pc6")
+
+[node name="ColorRect" type="ColorRect" parent="UI/GameOverScreen" unique_id=982795742]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.1280947, 0.011419811, 0.01235441, 1)
+
+[node name="Title" type="Label" parent="UI/GameOverScreen" unique_id=1086269935]
+layout_mode = 0
+offset_left = 167.0
+offset_top = 95.0
+offset_right = 885.0
+offset_bottom = 241.0
+scale = Vector2(1.2008444, 1.2008444)
+theme_override_fonts/font = ExtResource("27_sqvbp")
+theme_override_font_sizes/font_size = 125
+text = "Game Over!"
+
+[node name="Subtitle" type="Label" parent="UI/GameOverScreen" unique_id=1402695228]
+layout_mode = 0
+offset_left = 218.0
+offset_top = 294.0
+offset_right = 936.0
+offset_bottom = 332.0
+theme_override_fonts/font = ExtResource("23_sqvbp")
+theme_override_font_sizes/font_size = 32
+text = "The horde broke through... no one survived..."
+horizontal_alignment = 1
+
+[node name="RestartButton" type="Button" parent="UI/GameOverScreen" unique_id=962785366]
+modulate = Color(8.738331, 3.1490376, 3.9008136, 1)
+layout_mode = 0
+offset_left = 601.0
+offset_top = 473.0
+offset_right = 976.0
+offset_bottom = 580.0
+theme_override_fonts/font = ExtResource("27_sqvbp")
+theme_override_font_sizes/font_size = 32
+text = "Play Again"
+
+[node name="QuitButton" type="Button" parent="UI/GameOverScreen" unique_id=2018883918]
+modulate = Color(2.0702899, 1.6120914, 2.0702899, 1)
+layout_mode = 0
+offset_left = 163.0
+offset_top = 473.0
+offset_right = 538.0
+offset_bottom = 580.0
+theme_override_fonts/font = ExtResource("27_sqvbp")
+theme_override_font_sizes/font_size = 32
+text = "Quit
+"
+
+[node name="TimerLabel" type="Label" parent="UI" unique_id=513849297]
+visible = false
+offset_left = 23.0
+offset_top = 21.0
+offset_right = 168.0
+offset_bottom = 88.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("27_sqvbp")
+theme_override_font_sizes/font_size = 48
+
+[node name="Level3Warning" type="Label" parent="UI" unique_id=88500280]
+visible = false
+offset_left = 99.0
+offset_top = 312.0
+offset_right = 1049.0
+offset_bottom = 357.0
+theme_override_colors/font_color = Color(1, 0.19, 0.2034998, 1)
+theme_override_fonts/font = ExtResource("23_sqvbp")
+theme_override_font_sizes/font_size = 32
+text = "Note: If you fall from Level 3, you restart from Level 2."
+horizontal_alignment = 1
+
+[node name="HiddenPlatformNote" type="Label" parent="UI" unique_id=16538108]
+visible = false
+offset_left = 120.0
+offset_top = 306.0
+offset_right = 1027.0
+offset_bottom = 344.0
+theme_override_colors/font_color = Color(0.30142003, 0.9823892, 1.010103, 1)
+theme_override_fonts/font = ExtResource("23_sqvbp")
+theme_override_font_sizes/font_size = 32
+text = "Note: Find out the hidden platform to help you escape!"
+horizontal_alignment = 1
+
+[node name="BackgroundMusic" type="AudioStreamPlayer" parent="." unique_id=1511357702]
+process_mode = 3
+stream = ExtResource("28_hri7i")
+volume_db = 1.0
+autoplay = true
+script = ExtResource("29_5mvff")
+
+[node name="ZombieSound" type="AudioStreamPlayer" parent="." unique_id=1506349759]
+process_mode = 3
+stream = ExtResource("29_w3rk5")
+volume_db = -1.238
+autoplay = true
+script = ExtResource("29_5mvff")

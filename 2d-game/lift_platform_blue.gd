@@ -5,7 +5,8 @@ extends AnimatableBody2D
 
 var start_pos: Vector2
 var target_pos: Vector2
-var active_request := false
+var plate1_active: bool = false  
+var plate2_active: bool = false 
 var players_on_platform: Array = []
 
 @onready var detect_area = $DetectArea
@@ -13,26 +14,29 @@ var players_on_platform: Array = []
 func _ready():
 	start_pos = position
 	target_pos = start_pos
-
 	detect_area.body_entered.connect(_on_detect_body_entered)
 	detect_area.body_exited.connect(_on_detect_body_exited)
 
-func request_up():
-	active_request = true
-	target_pos = Vector2(start_pos.x, start_pos.y - rise_height)
-	print("platform requested up")
+func set_plate1(active: bool):
+	plate1_active = active
+	update_target()
 
-func release_request():
-	active_request = false
-	print("platform released")
+func set_plate2(active: bool):
+	plate2_active = active
+	update_target()
+
+func update_target():
+	if plate1_active:
+		
+		target_pos = Vector2(start_pos.x, start_pos.y - rise_height)
+	elif plate2_active:
+		
+		target_pos = Vector2(start_pos.x, start_pos.y - rise_height)
+	else:
+		
+		target_pos = start_pos
 
 func _physics_process(delta):
-	
-	if not active_request and players_on_platform.is_empty():
-		target_pos = start_pos
-	elif active_request:
-		target_pos = Vector2(start_pos.x, start_pos.y - rise_height)
-
 	position = position.move_toward(target_pos, move_speed * delta)
 
 func _on_detect_body_entered(body):
