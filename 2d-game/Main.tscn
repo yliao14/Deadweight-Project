@@ -136,7 +136,7 @@ height = 82.0
 size = Vector2(174.5, 261)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_03owx"]
-size = Vector2(1157, 520)
+size = Vector2(1157, 952)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hhcpw"]
 bg_color = Color(1, 0.8333334, 0, 1)
@@ -265,7 +265,7 @@ position = Vector2(7, 2)
 script = ExtResource("9_wkp8b")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Level3Zone" unique_id=314210279]
-position = Vector2(-6.5, -1231)
+position = Vector2(-6.5, -1447)
 shape = SubResource("RectangleShape2D_03owx")
 
 [node name="UI" type="CanvasLayer" parent="." unique_id=60691073]
@@ -527,25 +527,41 @@ theme_override_font_sizes/font_size = 48
 [node name="Level3Warning" type="Label" parent="UI" unique_id=88500280]
 visible = false
 offset_left = 99.0
-offset_top = 312.0
+offset_top = 285.0
 offset_right = 1049.0
-offset_bottom = 357.0
+offset_bottom = 364.0
 theme_override_colors/font_color = Color(1, 0.19, 0.2034998, 1)
 theme_override_fonts/font = ExtResource("23_sqvbp")
 theme_override_font_sizes/font_size = 32
-text = "Note: If you fall from Level 3, you restart from Level 2."
+text = "Level 3
+Note: If you fall from Level 3, you restart from Level 2."
 horizontal_alignment = 1
 
 [node name="HiddenPlatformNote" type="Label" parent="UI" unique_id=16538108]
 visible = false
-offset_left = 120.0
-offset_top = 306.0
-offset_right = 1027.0
-offset_bottom = 344.0
+offset_left = 121.0
+offset_top = 271.0
+offset_right = 1028.0
+offset_bottom = 391.0
 theme_override_colors/font_color = Color(0.30142003, 0.9823892, 1.010103, 1)
 theme_override_fonts/font = ExtResource("23_sqvbp")
 theme_override_font_sizes/font_size = 32
-text = "Note: Find out the hidden platform to help you escape!"
+text = "Level 1
+Note: Press the pressure plate and find out 
+the hidden platform to help you escape!"
+horizontal_alignment = 1
+
+[node name="ControllerNote" type="Label" parent="UI" unique_id=1986290248]
+visible = false
+offset_left = 180.0
+offset_top = 286.0
+offset_right = 960.0
+offset_bottom = 365.0
+theme_override_colors/font_color = Color(0.07450981, 0.93333334, 0.9098039, 1)
+theme_override_fonts/font = ExtResource("23_sqvbp")
+theme_override_font_sizes/font_size = 32
+text = "Level 2
+Note: Use the controller to move the platform!"
 horizontal_alignment = 1
 
 [node name="BackgroundMusic" type="AudioStreamPlayer" parent="." unique_id=1511357702]

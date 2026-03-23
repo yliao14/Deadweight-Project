@@ -9,7 +9,7 @@ extends Node2D
 @onready var timer_label = $UI/TimerLabel
 @onready var level3_warning = $UI/Level3Warning
 @onready var hidden_platform_note = $UI/HiddenPlatformNote
-
+@onready var controller_note = $UI/ControllerNote
 @onready var zombie1 = $Zombie1
 @onready var zombie2 = $Zombie2
 @onready var zombie3 = $Zombie3
@@ -27,19 +27,17 @@ func _ready():
 	game_over_screen.hide()
 	congratulations_screen.hide()
 	hidden_platform_note.hide()
+	controller_note.hide()
+	timer_label.hide()
 	start_timer()
-	
 
 func _process(delta):
 	camera.global_position = camera.global_position.lerp(current_target.global_position, 4.0 * delta)
-	
 	if timer_running:
 		total_time -= delta
 		update_timer_display()
-		
 		if total_time <= 10.0:
 			timer_label.modulate = Color.RED
-		
 		if total_time <= 0.0:
 			total_time = 0.0
 			timer_running = false
@@ -47,7 +45,7 @@ func _process(delta):
 
 func update_timer_display():
 	timer_label.text = str(int(ceil(total_time))) + "s"
-	
+
 func show_timer():
 	timer_label.show()
 	show_hidden_platform_note()
@@ -66,15 +64,11 @@ func trigger_zombie_chase():
 	if zombie_released:
 		return
 	zombie_released = true
-	
 	var target = get_closest_player()
 	if target == null:
 		return
-	
 	var base_x = target.global_position.x - 300
 	var base_y = target.global_position.y
-	
-	
 	zombie1.start_running(Vector2(base_x, base_y))
 	zombie2.start_running(Vector2(base_x - 40, base_y))
 	zombie3.start_running(Vector2(base_x - 80, base_y))
@@ -86,28 +80,25 @@ func get_closest_player() -> Node2D:
 		return player2
 	if player2 == null:
 		return player1
-	
 	if player1.global_position.y >= player2.global_position.y:
 		return player1
 	else:
 		return player2
 
 func show_game_over():
-	print("show_game_over called")
 	game_over_screen.show()
 
 func move_camera_to_level_2():
 	current_target = cam_target_l2
+	show_controller_note()
 
 func move_camera_to_level_3():
 	current_target = cam_target_l3
 	show_level3_warning()
-	
+
 func show_level3_warning():
-	level3_warning.text = "If you fall from Level 3, you restart from Level 2."
 	level3_warning.show()
 	level3_warning.modulate.a = 1.0
-	#fades out in 2s
 	await get_tree().create_timer(2.0).timeout
 	var tween = create_tween()
 	tween.tween_property(level3_warning, "modulate:a", 0.0, 1.0)
@@ -117,9 +108,9 @@ func show_level3_warning():
 func show_congratulations():
 	stop_timer()
 	$BackgroundMusic.stop()
-	$ZombieSound.stop()  
+	$ZombieSound.stop()
 	congratulations_screen.show()
-	
+
 func show_hidden_platform_note():
 	hidden_platform_note.show()
 	hidden_platform_note.modulate.a = 1.0
@@ -128,3 +119,15 @@ func show_hidden_platform_note():
 	tween.tween_property(hidden_platform_note, "modulate:a", 0.0, 1.0)
 	await tween.finished
 	hidden_platform_note.hide()
+
+func show_controller_note():
+	controller_note.show()
+	controller_note.modulate.a = 1.0
+	await get_tree().create_timer(3.0).timeout
+	var tween = create_tween()
+	tween.tween_property(controller_note, "modulate:a", 0.0, 1.0)
+	await tween.finished
+	controller_note.hide()
+
+func lock_camera_to_level_3():
+	current_target = cam_target_l3
