@@ -30,7 +30,7 @@ func reset_to_level2():
 		player2.global_position = spawn2.global_position
 		player2.velocity = Vector2.ZERO
 	
-	# 重置 Level2 的梯子
+	
 	var yellow_rod = main.get_node_or_null("Level2/YellowRod")
 	if yellow_rod:
 		yellow_rod.activated = false
