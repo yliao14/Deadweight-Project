@@ -27,7 +27,7 @@ func start_escape():
 	var player1 = main.get_node_or_null("Player1")
 	var player2 = main.get_node_or_null("Player2")
 
-	# 停用所有 Zone，避免觸發任何 note 或 reset
+	
 	var level2_zone = main.get_node_or_null("Level2Zone")
 	var level3_zone = main.get_node_or_null("Level3Zone")
 	if level2_zone:
@@ -37,7 +37,7 @@ func start_escape():
 		level3_zone.set_process(false)
 		level3_zone.monitoring = false
 
-	# 停止玩家控制
+	
 	if player1:
 		player1.set_physics_process(false)
 	if player2:

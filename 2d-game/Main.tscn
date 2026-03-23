@@ -136,7 +136,7 @@ height = 82.0
 size = Vector2(174.5, 261)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_03owx"]
-size = Vector2(1157, 665)
+size = Vector2(1157, 952)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hhcpw"]
 bg_color = Color(1, 0.8333334, 0, 1)
@@ -265,7 +265,7 @@ position = Vector2(7, 2)
 script = ExtResource("9_wkp8b")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Level3Zone" unique_id=314210279]
-position = Vector2(-6.5, -1303.5)
+position = Vector2(-6.5, -1447)
 shape = SubResource("RectangleShape2D_03owx")
 
 [node name="UI" type="CanvasLayer" parent="." unique_id=60691073]
